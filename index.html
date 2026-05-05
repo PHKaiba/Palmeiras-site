@@ -1,0 +1,1594 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Imortais Palmeirenses — Hall of Legends da Sociedade Esportiva Palmeiras">
+    <meta property="og:title" content="Imortais Palmeirenses | Hall of Legends">
+    <meta property="og:description" content="Celebrando os maiores ídolos da história do Palmeiras">
+    <meta property="og:type" content="website">
+    <title>Imortais Palmeirenses | Hall of Legends · SE Palmeiras</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Barlow+Condensed:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+         :root {
+            --verde: #1a5c2a;
+            --verde-escuro: #0b2e17;
+            --verde-medio: #1f7a35;
+            --verde-claro: #2e9e47;
+            --ouro: #c9a84c;
+            --ouro-claro: #e8c97a;
+            --ouro-escuro: #8a6b28;
+            --branco: #f5f0e8;
+            --creme: #ede8d8;
+        }
+        
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            background: var(--verde-escuro);
+            color: var(--branco);
+            font-family: 'Barlow Condensed', sans-serif;
+        }
+        /* ─── STARS ─── */
+        
+        #stars {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 0;
+        }
+        
+        .star {
+            position: absolute;
+            border-radius: 50%;
+            background: var(--ouro);
+            opacity: 0;
+            animation: twinkle var(--dur, 3s) var(--delay, 0s) infinite;
+        }
+        
+        @keyframes twinkle {
+            0%,
+            100% {
+                opacity: 0;
+            }
+            50% {
+                opacity: var(--op, 0.25);
+            }
+        }
+        /* ─── NOISE TEXTURE ─── */
+        
+        #noise {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 1;
+            opacity: 0.04;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+            background-size: 200px 200px;
+        }
+        /* ─── INTRO ─── */
+        
+        #intro {
+            position: fixed;
+            inset: 0;
+            z-index: 100;
+            background: radial-gradient(ellipse at 50% 60%, #1a5c2a22 0%, var(--verde-escuro) 70%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 0.9s ease;
+            gap: 0;
+        }
+        
+        #intro.fade-out {
+            opacity: 0;
+            pointer-events: none;
+        }
+        
+        .intro-emblem {
+            width: 110px;
+            height: 110px;
+            border: 1.5px solid var(--ouro);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 2.5rem;
+            position: relative;
+            animation: emblem-in 1s cubic-bezier(0.23, 1, 0.32, 1) both;
+        }
+        
+        .intro-emblem::before {
+            content: '';
+            position: absolute;
+            inset: -8px;
+            border-radius: 50%;
+            border: 1px solid rgba(201, 168, 76, 0.2);
+            animation: pulse-ring 3s infinite;
+        }
+        
+        .intro-emblem::after {
+            content: '';
+            position: absolute;
+            inset: -16px;
+            border-radius: 50%;
+            border: 1px solid rgba(201, 168, 76, 0.08);
+            animation: pulse-ring 3s 0.5s infinite;
+        }
+        
+        @keyframes emblem-in {
+            from {
+                opacity: 0;
+                transform: scale(0.7) rotate(-15deg);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1) rotate(0deg);
+            }
+        }
+        
+        @keyframes pulse-ring {
+            0%,
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            50% {
+                transform: scale(1.08);
+                opacity: 0.5;
+            }
+        }
+        
+        .intro-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.8rem, 7vw, 5.5rem);
+            font-weight: 900;
+            letter-spacing: 0.03em;
+            text-align: center;
+            line-height: 1.0;
+            color: var(--branco);
+            animation: text-in 1s 0.3s cubic-bezier(0.23, 1, 0.32, 1) both;
+        }
+        
+        .intro-title .gold {
+            color: var(--ouro);
+            display: block;
+        }
+        
+        .intro-sub {
+            margin-top: 1rem;
+            font-size: 0.8rem;
+            letter-spacing: 0.35em;
+            text-transform: uppercase;
+            color: var(--ouro-claro);
+            opacity: 0.7;
+            animation: text-in 1s 0.5s both;
+        }
+        
+        .intro-line {
+            width: 80px;
+            height: 1px;
+            background: linear-gradient(to right, transparent, var(--ouro), transparent);
+            margin: 2.5rem auto;
+            animation: text-in 1s 0.6s both;
+        }
+        
+        .intro-btn {
+            background: transparent;
+            border: 1.5px solid var(--ouro);
+            color: var(--ouro);
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 0.35em;
+            text-transform: uppercase;
+            padding: 1rem 3rem;
+            cursor: pointer;
+            transition: all 0.35s ease;
+            animation: text-in 1s 0.7s both;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .intro-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--ouro);
+            transition: left 0.35s ease;
+            z-index: -1;
+        }
+        
+        .intro-btn:hover {
+            color: var(--verde-escuro);
+        }
+        
+        .intro-btn:hover::before {
+            left: 0;
+        }
+        
+        .intro-scroll-hint {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            text-align: center;
+            font-size: 0.6rem;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: var(--ouro);
+            opacity: 0.4;
+            animation: text-in 1s 1.5s both;
+        }
+        
+        @keyframes text-in {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        /* ─── MAIN ─── */
+        
+        #main {
+            position: fixed;
+            inset: 0;
+            z-index: 10;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 1s ease 0.2s;
+        }
+        
+        #main.visible {
+            opacity: 1;
+            pointer-events: all;
+        }
+        /* ─── TOPBAR ─── */
+        
+        .topbar {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 30;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1.4rem 3rem;
+            background: linear-gradient(to bottom, rgba(11, 46, 23, 0.98) 0%, rgba(11, 46, 23, 0.0) 100%);
+        }
+        
+        .topbar-logo-wrap {
+            display: flex;
+            flex-direction: column;
+            gap: 0.15rem;
+        }
+        
+        .topbar-logo-main {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--ouro);
+        }
+        
+        .topbar-logo-sub {
+            font-size: 0.6rem;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--branco);
+            opacity: 0.4;
+        }
+        
+        .topbar-nav {
+            display: flex;
+            gap: 2.5rem;
+        }
+        
+        .nav-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: var(--branco);
+            opacity: 0.55;
+            transition: all 0.25s;
+            padding: 0;
+            position: relative;
+        }
+        
+        .nav-btn::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: var(--ouro);
+            transform: scaleX(0);
+            transition: transform 0.25s;
+        }
+        
+        .nav-btn:hover,
+        .nav-btn.active {
+            opacity: 1;
+            color: var(--ouro-claro);
+        }
+        
+        .nav-btn:hover::after,
+        .nav-btn.active::after {
+            transform: scaleX(1);
+        }
+        
+        .topbar-hint {
+            font-size: 0.65rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--ouro);
+            opacity: 0.5;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+        /* ─── HORIZONTAL LINES ─── */
+        
+        .h-line {
+            position: absolute;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(to right, transparent 0%, rgba(201, 168, 76, 0.3) 15%, rgba(201, 168, 76, 0.3) 85%, transparent 100%);
+            pointer-events: none;
+            z-index: 5;
+        }
+        
+        .h-line.top {
+            top: calc(80px + 10vh);
+        }
+        
+        .h-line.bottom {
+            bottom: 10vh;
+        }
+        /* ─── GALLERY ─── */
+        
+        .gallery-outer {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            padding-top: 80px;
+        }
+        
+        .gallery-track {
+            display: flex;
+            align-items: center;
+            gap: clamp(2rem, 3vw, 4rem);
+            padding: 2rem clamp(4rem, 8vw, 10rem);
+            cursor: grab;
+            will-change: transform;
+            transition: transform 0.04s linear;
+        }
+        
+        .gallery-track.grabbing {
+            cursor: grabbing;
+        }
+        /* ─── LEGEND CARDS ─── */
+        
+        .legend-card {
+            flex: 0 0 auto;
+            width: clamp(180px, 18vw, 270px);
+            display: flex;
+            flex-direction: column;
+            cursor: pointer;
+            transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+            position: relative;
+        }
+        
+        .legend-card.featured {
+            width: clamp(240px, 24vw, 360px);
+        }
+        
+        .legend-card:hover {
+            transform: translateY(-14px);
+        }
+        
+        .card-glow {
+            position: absolute;
+            inset: -30px;
+            pointer-events: none;
+            background: radial-gradient(ellipse, rgba(201, 168, 76, 0.07) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.5s;
+            border-radius: 2px;
+        }
+        
+        .legend-card:hover .card-glow {
+            opacity: 1;
+        }
+        
+        .card-img {
+            width: 100%;
+            aspect-ratio: 2/3;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(201, 168, 76, 0.18);
+        }
+        
+        .card-img::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(11, 46, 23, 0.92) 0%, rgba(11, 46, 23, 0.1) 55%, transparent 100%);
+        }
+        
+        .card-bg-num {
+            position: absolute;
+            bottom: -10px;
+            right: -5px;
+            font-family: 'Playfair Display', serif;
+            font-size: 7rem;
+            font-weight: 900;
+            line-height: 1;
+            color: rgba(201, 168, 76, 0.1);
+            pointer-events: none;
+            z-index: 1;
+            transition: color 0.4s;
+        }
+        
+        .legend-card:hover .card-bg-num {
+            color: rgba(201, 168, 76, 0.2);
+        }
+        
+        .card-era-tag {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            z-index: 3;
+            font-size: 0.55rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--ouro);
+            background: rgba(11, 46, 23, 0.7);
+            padding: 3px 8px;
+            border: 1px solid rgba(201, 168, 76, 0.25);
+        }
+        
+        .card-pos-tag {
+            position: absolute;
+            bottom: 14px;
+            right: 12px;
+            z-index: 3;
+            font-size: 0.58rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--ouro-claro);
+            opacity: 0.85;
+        }
+        
+        .card-art {
+            position: absolute;
+            inset: 0;
+            z-index: 2;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            padding-bottom: 8%;
+        }
+        
+        .card-meta {
+            padding: 0.9rem 0.2rem 0;
+            display: flex;
+            flex-direction: column;
+            gap: 0.3rem;
+        }
+        
+        .card-name {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1rem, 1.8vw, 1.4rem);
+            font-weight: 700;
+            line-height: 1.1;
+            color: var(--branco);
+            transition: color 0.35s;
+        }
+        
+        .legend-card.featured .card-name {
+            font-size: clamp(1.3rem, 2.4vw, 2rem);
+        }
+        
+        .legend-card:hover .card-name {
+            color: var(--ouro-claro);
+        }
+        
+        .card-years {
+            font-size: 0.65rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--ouro);
+            opacity: 0.7;
+        }
+        
+        .card-highlight {
+            font-size: 0.72rem;
+            line-height: 1.5;
+            color: var(--branco);
+            opacity: 0.55;
+            margin-top: 0.1rem;
+        }
+        
+        .card-divider {
+            margin-top: 0.7rem;
+            height: 1px;
+            background: rgba(201, 168, 76, 0.12);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .card-divider-fill {
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            background: var(--ouro);
+            width: 25%;
+            transition: width 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+        
+        .legend-card:hover .card-divider-fill {
+            width: 65%;
+        }
+        /* ─── BOTTOM BAR ─── */
+        
+        .bottom-bar {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 20;
+            padding: 1.4rem 3rem;
+            background: linear-gradient(to top, rgba(11, 46, 23, 0.98) 0%, transparent 100%);
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+        }
+        
+        .stats-row {
+            display: flex;
+            gap: 3rem;
+        }
+        
+        .stat-item {
+            display: flex;
+            flex-direction: column;
+            gap: 0.2rem;
+        }
+        
+        .stat-num {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--ouro);
+            line-height: 1;
+        }
+        
+        .stat-label {
+            font-size: 0.6rem;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: var(--branco);
+            opacity: 0.45;
+        }
+        
+        .bottom-quote {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 0.82rem;
+            line-height: 1.6;
+            color: var(--ouro-claro);
+            opacity: 0.6;
+            max-width: 260px;
+            text-align: right;
+        }
+        /* ─── VOTE COUNTER ─── */
+        
+        .vote-pulse {
+            position: absolute;
+            bottom: 5.5rem;
+            right: 3rem;
+            z-index: 25;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 0.4rem;
+        }
+        
+        .vote-label {
+            font-size: 0.58rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--ouro);
+            opacity: 0.6;
+        }
+        
+        .vote-num {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--ouro-claro);
+        }
+        /* ─── DETAIL PANEL ─── */
+        
+        #detail {
+            position: fixed;
+            inset: 0;
+            z-index: 200;
+            background: rgba(11, 46, 23, 0.97);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.5s ease;
+        }
+        
+        #detail.open {
+            opacity: 1;
+            pointer-events: all;
+        }
+        
+        .detail-inner {
+            max-width: 820px;
+            width: 92%;
+            display: grid;
+            grid-template-columns: 1fr 1.7fr;
+            gap: 4rem;
+            align-items: center;
+            transform: translateY(28px);
+            transition: transform 0.55s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+        
+        #detail.open .detail-inner {
+            transform: translateY(0);
+        }
+        
+        .detail-art-wrap {
+            aspect-ratio: 2/3;
+            border: 1px solid rgba(201, 168, 76, 0.25);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .detail-art-wrap::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(11, 46, 23, 0.88) 0%, transparent 55%);
+        }
+        
+        .detail-art-num {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            z-index: 5;
+            font-family: 'Playfair Display', serif;
+            font-size: 5.5rem;
+            font-weight: 900;
+            color: var(--ouro);
+            line-height: 1;
+        }
+        
+        .detail-art-sil {
+            position: absolute;
+            inset: 0;
+            z-index: 2;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .detail-content {
+            padding: 0.5rem 0;
+        }
+        
+        .detail-era {
+            font-size: 0.65rem;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--ouro);
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+        
+        .detail-era::before {
+            content: '';
+            display: block;
+            width: 30px;
+            height: 1px;
+            background: var(--ouro);
+        }
+        
+        .detail-name {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.2rem, 4.5vw, 3.5rem);
+            font-weight: 900;
+            line-height: 1.0;
+            color: var(--branco);
+            margin-bottom: 0.4rem;
+        }
+        
+        .detail-pos {
+            font-size: 0.75rem;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: var(--ouro-claro);
+            opacity: 0.75;
+            margin-bottom: 2rem;
+        }
+        
+        .detail-divider {
+            width: 60px;
+            height: 1px;
+            background: var(--ouro);
+            margin-bottom: 1.8rem;
+        }
+        
+        .detail-bio {
+            font-size: 0.95rem;
+            line-height: 1.75;
+            color: var(--branco);
+            opacity: 0.72;
+            margin-bottom: 1.8rem;
+            font-family: 'Barlow Condensed';
+        }
+        
+        .detail-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.8rem;
+        }
+        
+        .detail-tag {
+            border: 1px solid rgba(201, 168, 76, 0.35);
+            color: var(--ouro-claro);
+            font-size: 0.6rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            padding: 5px 12px;
+            font-family: 'Barlow Condensed';
+        }
+        
+        .detail-years-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .detail-years-txt {
+            font-size: 0.65rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--branco);
+            opacity: 0.35;
+        }
+        /* VOTE BUTTON */
+        
+        .vote-btn {
+            background: transparent;
+            border: 1.5px solid var(--ouro);
+            color: var(--ouro);
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            padding: 0.65rem 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .vote-btn:hover {
+            background: var(--ouro);
+            color: var(--verde-escuro);
+        }
+        
+        .vote-btn.voted {
+            background: var(--ouro);
+            color: var(--verde-escuro);
+            opacity: 0.7;
+            cursor: default;
+        }
+        
+        .detail-close-btn {
+            position: absolute;
+            top: 2rem;
+            right: 2.5rem;
+            background: none;
+            border: 1px solid rgba(201, 168, 76, 0.3);
+            color: var(--ouro);
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 0.65rem;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            padding: 0.55rem 1.3rem;
+            cursor: pointer;
+            transition: all 0.25s;
+        }
+        
+        .detail-close-btn:hover {
+            background: rgba(201, 168, 76, 0.15);
+        }
+        /* ─── SECTION OVERLAYS ─── */
+        
+        .section-overlay {
+            position: fixed;
+            inset: 0;
+            z-index: 150;
+            background: rgba(11, 46, 23, 0.98);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.45s ease;
+        }
+        
+        .section-overlay.open {
+            opacity: 1;
+            pointer-events: all;
+        }
+        
+        .section-box {
+            max-width: 580px;
+            width: 90%;
+        }
+        
+        .section-heading {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 900;
+            color: var(--ouro);
+            margin-bottom: 0.4rem;
+        }
+        
+        .section-sub-heading {
+            font-size: 0.65rem;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--branco);
+            opacity: 0.4;
+            margin-bottom: 2.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+        
+        .section-sub-heading::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: rgba(201, 168, 76, 0.2);
+        }
+        
+        .section-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+        }
+        
+        .section-list li {
+            display: flex;
+            gap: 1.2rem;
+            align-items: flex-start;
+            font-size: 0.92rem;
+            line-height: 1.65;
+            color: var(--branco);
+            opacity: 0.75;
+            font-family: 'Barlow Condensed';
+        }
+        
+        .section-list li .bullet {
+            color: var(--ouro);
+            flex-shrink: 0;
+            font-size: 1rem;
+        }
+        
+        .faq-item {
+            margin-bottom: 1.5rem;
+        }
+        
+        .faq-q {
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            color: var(--ouro-claro);
+            margin-bottom: 0.4rem;
+            font-family: 'Barlow Condensed';
+        }
+        
+        .faq-a {
+            font-size: 0.88rem;
+            line-height: 1.65;
+            color: var(--branco);
+            opacity: 0.65;
+            font-family: 'Barlow Condensed';
+        }
+        
+        .section-back-btn {
+            margin-top: 2.5rem;
+            background: none;
+            border: 1px solid rgba(201, 168, 76, 0.3);
+            color: var(--ouro);
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 0.65rem;
+            font-weight: 600;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            padding: 0.7rem 1.8rem;
+            cursor: pointer;
+            transition: all 0.25s;
+        }
+        
+        .section-back-btn:hover {
+            background: rgba(201, 168, 76, 0.12);
+        }
+        /* ─── TOAST ─── */
+        
+        #toast {
+            position: fixed;
+            bottom: 2.5rem;
+            left: 50%;
+            transform: translateX(-50%) translateY(20px);
+            background: var(--ouro);
+            color: var(--verde-escuro);
+            font-family: 'Barlow Condensed';
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            padding: 0.8rem 2rem;
+            z-index: 500;
+            opacity: 0;
+            transition: all 0.4s ease;
+            pointer-events: none;
+        }
+        
+        #toast.show {
+            opacity: 1;
+            transform: translateX(-50%) translateY(0);
+        }
+        /* ─── CURSOR ─── */
+        
+        #cursor {
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 999;
+            pointer-events: none;
+            width: 30px;
+            height: 30px;
+            margin: -15px 0 0 -15px;
+            border: 1px solid rgba(201, 168, 76, 0.6);
+            border-radius: 50%;
+            transition: transform 0.2s ease, opacity 0.2s;
+            mix-blend-mode: exclusion;
+        }
+        
+        #cursor.big {
+            transform: scale(2);
+            opacity: 0.4;
+        }
+        
+        @media (max-width: 768px) {
+            .topbar {
+                padding: 1rem 1.5rem;
+            }
+            .topbar-hint {
+                display: none;
+            }
+            .bottom-bar {
+                padding: 1rem 1.5rem;
+            }
+            .stats-row {
+                gap: 1.5rem;
+            }
+            .stat-num {
+                font-size: 1.8rem;
+            }
+            .bottom-quote {
+                display: none;
+            }
+            .detail-inner {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            .detail-art-wrap {
+                aspect-ratio: 3/2;
+                max-height: 200px;
+            }
+            #cursor {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="stars"></div>
+    <div id="noise"></div>
+    <div id="cursor"></div>
+
+    <!-- ════════════════ INTRO ════════════════ -->
+    <div id="intro">
+        <div class="intro-emblem">
+            <svg width="68" height="68" viewBox="0 0 68 68" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="34" cy="34" r="32" stroke="#c9a84c" stroke-width="1.5"/>
+      <path d="M34 10 L38.5 25H55L42 34.5L46.5 49.5L34 40.5L21.5 49.5L26 34.5L13 25H29.5L34 10Z"
+            fill="#c9a84c" opacity="0.85"/>
+      <circle cx="34" cy="34" r="3" fill="#e8c97a" opacity="0.6"/>
+    </svg>
+        </div>
+
+        <h1 class="intro-title">
+            Imortais
+            <span class="gold">Palmeirenses</span>
+        </h1>
+        <p class="intro-sub">Hall of Legends &middot; Sociedade Esportiva Palmeiras &middot; Est. 1914</p>
+        <div class="intro-line"></div>
+        <button class="intro-btn" id="enter-btn">Entrar na Galeria</button>
+        <p class="intro-scroll-hint">Experiência melhor no desktop</p>
+    </div>
+
+    <!-- ════════════════ MAIN ════════════════ -->
+    <div id="main">
+
+        <nav class="topbar">
+            <div class="topbar-logo-wrap">
+                <div class="topbar-logo-main">Imortais Palmeirenses</div>
+                <div class="topbar-logo-sub">Sociedade Esportiva Palmeiras &middot; Hall of Legends</div>
+            </div>
+            <div class="topbar-nav">
+                <button class="nav-btn active" data-section="galeria">Galeria</button>
+                <button class="nav-btn" data-section="criterios">Critérios</button>
+                <button class="nav-btn" data-section="votacao">Votação</button>
+                <button class="nav-btn" data-section="faq">FAQ</button>
+            </div>
+            <div class="topbar-hint">&#8660;&nbsp; Clique e arraste para explorar</div>
+        </nav>
+
+        <div class="h-line top"></div>
+        <div class="h-line bottom"></div>
+
+        <div class="gallery-outer">
+            <div class="gallery-track" id="track"></div>
+        </div>
+
+        <div class="bottom-bar">
+            <div class="stats-row">
+                <div class="stat-item">
+                    <div class="stat-num" id="stat-imortais">12</div>
+                    <div class="stat-label">Imortais Honrados</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-num">110</div>
+                    <div class="stat-label">Anos de História</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-num">25</div>
+                    <div class="stat-label">Títulos Nacionais</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-num">3</div>
+                    <div class="stat-label">Libertadores</div>
+                </div>
+            </div>
+            <div class="bottom-quote">"Palestra Itália, fonte de glórias e de lutas, és o nosso orgulho maior."</div>
+        </div>
+
+    </div>
+    <!-- end #main -->
+
+    <!-- ════════════════ DETAIL ════════════════ -->
+    <div id="detail" role="dialog" aria-modal="true">
+        <button class="detail-close-btn" id="detail-close">&#10005; Fechar</button>
+        <div class="detail-inner">
+            <div class="detail-art-wrap" id="detail-art">
+                <div class="detail-art-sil" id="detail-art-sil"></div>
+                <div class="detail-art-num" id="d-num">#10</div>
+            </div>
+            <div class="detail-content">
+                <div class="detail-era" id="d-era">Era Clássica</div>
+                <div class="detail-name" id="d-name">Nome</div>
+                <div class="detail-pos" id="d-pos">Posição</div>
+                <div class="detail-divider"></div>
+                <div class="detail-bio" id="d-bio"></div>
+                <div class="detail-tags" id="d-tags"></div>
+                <div class="detail-years-row">
+                    <div class="detail-years-txt" id="d-years"></div>
+                    <button class="vote-btn" id="vote-btn">&#9733; Votar neste Imortal</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ════════════════ CRITERIOS ════════════════ -->
+    <div id="section-criterios" class="section-overlay">
+        <div class="section-box">
+            <h2 class="section-heading">Critérios</h2>
+            <p class="section-sub-heading">de seleção para o Hall of Legends</p>
+            <ul class="section-list">
+                <li><span class="bullet">&#8212;</span>O jogador deve ter atuado por no mínimo três temporadas com a camisa do Palmeiras.</li>
+                <li><span class="bullet">&#8212;</span>O atleta deve estar oficialmente aposentado do futebol profissional há pelo menos três anos.</li>
+                <li><span class="bullet">&#8212;</span>Membros da comissão técnica e diretoria devem ter contribuído de forma determinante para conquistas históricas do clube.</li>
+                <li><span class="bullet">&#8212;</span>Todos os homenageados devem ter deixado marca indelével no coração da torcida — por recordes, liderança ou conquistas históricas.</li>
+                <li><span class="bullet">&#8212;</span>Alto padrão de caráter e integridade dentro e fora dos gramados, durante e após a carreira.</li>
+                <li><span class="bullet">&#8212;</span>Para a primeira classe, todos os jogadores são membros do Hall of Fame do futebol brasileiro ou tiveram homenagens formais no Allianz Parque.</li>
+            </ul>
+            <button class="section-back-btn" data-close="criterios">&#8592; Voltar à Galeria</button>
+        </div>
+    </div>
+
+    <!-- ════════════════ VOTAÇÃO ════════════════ -->
+    <div id="section-votacao" class="section-overlay">
+        <div class="section-box">
+            <h2 class="section-heading">Votação</h2>
+            <p class="section-sub-heading">indique o próximo imortal</p>
+            <div id="vote-ranking"></div>
+            <p style="font-size:0.75rem;color:var(--ouro);opacity:0.6;margin-top:1.5rem;font-family:'Barlow Condensed';letter-spacing:0.1em;">
+                Clique em um card na galeria e vote no seu ídolo favorito. Os votos são contabilizados nesta sessão.
+            </p>
+            <button class="section-back-btn" data-close="votacao">&#8592; Voltar à Galeria</button>
+        </div>
+    </div>
+
+    <!-- ════════════════ FAQ ════════════════ -->
+    <div id="section-faq" class="section-overlay">
+        <div class="section-box">
+            <h2 class="section-heading">FAQ</h2>
+            <p class="section-sub-heading">perguntas frequentes</p>
+            <div class="faq-item">
+                <div class="faq-q">Como os imortais são selecionados?</div>
+                <div class="faq-a">Uma comissão formada por ex-jogadores, jornalistas especializados e membros da diretoria avalia candidatos com base nos critérios históricos e de caráter estabelecidos pelo clube.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q">Há uma cerimônia de honraria?</div>
+                <div class="faq-a">Sim. A cada dois anos, uma cerimônia exclusiva é realizada no Allianz Parque com a presença dos homenageados, familiares e convidados especiais.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q">A torcida pode indicar candidatos?</div>
+                <div class="faq-a">Sim. Torcedores podem enviar indicações pelo site oficial do clube. Os nomes mais votados são considerados pela comissão como um dos fatores na deliberação final.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q">Técnicos e dirigentes podem ser honrados?</div>
+                <div class="faq-a">Absolutamente. Treinadores, dirigentes e membros da comissão técnica que contribuíram de forma determinante para a história do clube são igualmente elegíveis.</div>
+            </div>
+            <button class="section-back-btn" data-close="faq">&#8592; Voltar à Galeria</button>
+        </div>
+    </div>
+
+    <!-- TOAST -->
+    <div id="toast"></div>
+
+    <script>
+        // ═══ DATA ═══
+        const LEGENDS = [{
+            id: 'ademir',
+            number: '10',
+            name: 'Ademir da Guia',
+            pos: 'Meia · O Divino',
+            years: '1964 – 1977',
+            era: 'Era Clássica',
+            featured: true,
+            color: '#1f7a35',
+            bio: 'O Divino. Filho de Domingos da Guia, Ademir transformou a posição de meia em pura arte. Com elegância incomparável e visão de jogo singular, conduziu o Palmeiras ao tricampeonato paulista e foi o coração da lendária equipe das Academias — considerada uma das maiores do futebol brasileiro.',
+            titles: ['Campeão Brasileiro 1972', 'Tricampeão Paulista', 'Melhor Jogador do Século XX pelo Palmeiras'],
+        }, {
+            id: 'leivinha',
+            number: '9',
+            name: 'Leivinha',
+            pos: 'Atacante · Veloz',
+            years: '1968 – 1974',
+            era: 'Era Clássica',
+            featured: false,
+            color: '#1a5c2a',
+            bio: 'Parceiro ideal de Ademir da Guia, Leivinha foi peça central no time das Academias — um dos maiores conjuntos da história do futebol sul-americano. Sua velocidade, inteligência e faro de gol foram determinantes nos títulos conquistados nos anos 1970.',
+            titles: ['Campeão Brasileiro 1972', 'Campeão Paulista', 'Copa do Brasil'],
+        }, {
+            id: 'leao',
+            number: '1',
+            name: 'Emerson Leão',
+            pos: 'Goleiro · Muralha',
+            years: '1971 – 1979',
+            era: 'Era das Academias',
+            featured: false,
+            color: '#0d3318',
+            bio: 'O Leão. Um dos maiores goleiros da história do Brasil, Emerson Leão foi pilar fundamental do Palmeiras tricampeão nos anos 70. Sua postura, liderança e segurança sob as traves tornaram-no uma das figuras mais marcantes da história do Parque Antarctica.',
+            titles: ['Campeão Brasileiro 1972', 'Tricampeão Paulista', 'Seleção Brasileira'],
+        }, {
+            id: 'rivaldo',
+            number: '11',
+            name: 'Rivaldo',
+            pos: 'Meia-Atacante · Gênio',
+            years: '1994 – 1996',
+            era: 'Era Moderna',
+            featured: false,
+            color: '#2e9e47',
+            bio: 'Antes de se tornar astro no FC Barcelona e na Seleção Brasileira, Rivaldo deu seus primeiros passos de estrela no Parque Antarctica. Foi decisivo no tricampeonato paulista de 93–96. Seu esquerdaço e visão de jogo ímpares renderam o Bola de Ouro FIFA de 1999.',
+            titles: ['Tricampeão Paulista', 'Copa do Brasil', 'Bola de Ouro FIFA 1999'],
+        }, {
+            id: 'evair',
+            number: '7',
+            name: 'Evair',
+            pos: 'Atacante · Artilheiro',
+            years: '1990 – 1995',
+            era: 'Era Moderna',
+            featured: false,
+            color: '#1a5c2a',
+            bio: 'Artilheiro histórico do Palmeiras e protagonista de uma das fases mais ricas do clube. Evair foi decisivo em momentos cruciais — seus gols na Copa do Brasil e no Paulistão são lembrados até hoje pela torcida alviverde.',
+            titles: ['Copa do Brasil 1994', 'Campeão Paulista ×3', 'Artilheiro Histórico'],
+        }, {
+            id: 'marcos',
+            number: '1',
+            name: 'Marcos',
+            pos: 'Goleiro · Lendário',
+            years: '1997 – 2012',
+            era: 'Era dos Títulos',
+            featured: false,
+            color: '#0d3318',
+            bio: 'Melhor goleiro do mundo em 2002, eleito pela IFFHS. Marcos defendeu o Palmeiras por 15 anos, tornando-se o maior goleiro da história do clube. Sua atuação na Copa do Mundo de 2002 — e a longa fidelidade ao Verdão — fizeram dele um ídolo eterno.',
+            titles: ['Copa do Brasil', 'Libertadores 1999', 'Melhor Goleiro Mundo 2002'],
+        }, {
+            id: 'scolari',
+            number: '–',
+            name: 'Luiz Felipe Scolari',
+            pos: 'Técnico · Maestro',
+            years: '1992 – 2000',
+            era: 'Era dos Títulos',
+            featured: false,
+            color: '#1f7a35',
+            bio: 'Felipão. O técnico que mais títulos conquistou com o Palmeiras. Sob seu comando, o Verdão venceu duas Copas do Brasil, a Copa Libertadores de 1999 e a Recopa Sul-Americana. Depois guiou o Brasil ao pentacampeonato mundial em 2002.',
+            titles: ['Libertadores 1999', 'Copa do Brasil ×2', 'Campeão Mundo 2002'],
+        }, {
+            id: 'zinho',
+            number: '8',
+            name: 'Zinho',
+            pos: 'Meia · Condutor',
+            years: '1998 – 2002',
+            era: 'Era dos Títulos',
+            featured: false,
+            color: '#2e9e47',
+            bio: 'Campeão do mundo com o Brasil em 1994, Zinho chegou ao Palmeiras carregando experiência e classe de sobra. Peça importante no ciclo vitorioso do clube no final dos anos 90 e início dos anos 2000, confirmou-se como um dos maiores meias de sua geração.',
+            titles: ['Copa do Mundo 1994', 'Libertadores 1999', 'Campeão Paulista'],
+        }, {
+            id: 'dudu',
+            number: '7',
+            name: 'Dudu',
+            pos: 'Atacante · Rei',
+            years: '2015 – 2022',
+            era: 'Era Contemporânea',
+            featured: true,
+            color: '#2e9e47',
+            bio: 'O ídolo máximo da geração que quebrou o jejum de 22 anos sem o Brasileirão. Dudu foi o jogador mais importante da era recente do Palmeiras, capitaneando duas conquistas históricas da Libertadores e se tornando o símbolo de uma época dourada.',
+            titles: ['Libertadores 2020 & 2021', 'Brasileirão ×2', 'Copa do Brasil'],
+        }, {
+            id: 'felipemelo',
+            number: '5',
+            name: 'Felipe Melo',
+            pos: 'Volante · Guerreiro',
+            years: '2016 – 2023',
+            era: 'Era Contemporânea',
+            featured: false,
+            color: '#0d3318',
+            bio: 'O Xerife. Sua liderança, intensidade e entrega foram fundamentais no ciclo vitorioso sob Abel Ferreira. Capitão na conquista da Libertadores 2021 contra o Flamengo no Maracanã — um dos momentos mais emocionantes da história recente do clube.',
+            titles: ['Libertadores 2020 & 2021', 'Brasileirão ×2', 'Copa do Brasil'],
+        }, {
+            id: 'abel',
+            number: '–',
+            name: 'Abel Ferreira',
+            pos: 'Técnico · Revolucionário',
+            years: '2020 – Presente',
+            era: 'Era Contemporânea',
+            featured: false,
+            color: '#1a5c2a',
+            bio: 'O português que se tornou mais palmeirense do que muitos. Abel chegou em outubro de 2020 e transformou o Palmeiras numa máquina de títulos, tornando-se o técnico mais vitorioso da história do clube com duas Libertadores consecutivas — feito inédito.',
+            titles: ['Libertadores 2020 & 2021', 'Brasileirão ×2', 'Copa do Brasil'],
+        }, {
+            id: 'endrick',
+            number: '17',
+            name: 'Endrick',
+            pos: 'Atacante · Fenômeno',
+            years: '2022 – 2024',
+            era: 'Era Contemporânea',
+            featured: false,
+            color: '#c9a84c',
+            bio: 'O Fenômeno de Brasília. Revelado nas categorias de base do Palmeiras, Endrick mostrou ao mundo seu talento extraordinário ainda adolescente, tornando-se o jogador mais jovem a marcar em clássicos. Deixou para o Real Madrid, mas ficou para sempre na memória verde.',
+            titles: ['Brasileirão 2023', 'Copa do Brasil', 'Revelação do Ano CBF'],
+        }, ];
+
+        // ═══ VOTES (in-memory) ═══
+        const votes = {};
+        LEGENDS.forEach(l => votes[l.id] = 0);
+
+        // ═══ BUILD STARS ═══
+        const starsEl = document.getElementById('stars');
+        for (let i = 0; i < 80; i++) {
+            const s = document.createElement('div');
+            s.className = 'star';
+            const sz = Math.random() * 2.5 + 0.5;
+            s.style.cssText = `width:${sz}px;height:${sz}px;top:${Math.random()*100}%;left:${Math.random()*100}%;--dur:${2+Math.random()*5}s;--delay:${Math.random()*5}s;--op:${0.08+Math.random()*0.25}`;
+            starsEl.appendChild(s);
+        }
+
+        // ═══ SILHOUETTE SVG ═══
+        function silhouette(color, variant) {
+            const v = variant % 4;
+            const c = color;
+            const op = [0.45, 0.38, 0.32];
+            if (v === 0) return `<svg width="110" height="200" viewBox="0 0 110 200" fill="none">
+    <ellipse cx="55" cy="26" rx="17" ry="17" fill="${c}" opacity="${op[0]}"/>
+    <rect x="38" y="46" width="34" height="62" rx="5" fill="${c}" opacity="${op[1]}"/>
+    <rect x="20" y="50" width="17" height="48" rx="4" fill="${c}" opacity="${op[2]}"/>
+    <rect x="73" y="50" width="17" height="48" rx="4" fill="${c}" opacity="${op[2]}"/>
+    <rect x="30" y="108" width="20" height="72" rx="4" fill="${c}" opacity="${op[1]}"/>
+    <rect x="60" y="108" width="20" height="72" rx="4" fill="${c}" opacity="${op[1]}"/>
+  </svg>`;
+            if (v === 1) return `<svg width="110" height="200" viewBox="0 0 110 200" fill="none">
+    <ellipse cx="55" cy="24" rx="16" ry="16" fill="${c}" opacity="${op[0]}"/>
+    <path d="M39 43 L36 106 L55 96 L74 106 L71 43Z" fill="${c}" opacity="${op[1]}"/>
+    <rect x="20" y="48" width="18" height="46" rx="4" fill="${c}" opacity="${op[2]}"/>
+    <rect x="72" y="48" width="18" height="46" rx="4" fill="${c}" opacity="${op[2]}"/>
+    <rect x="28" y="104" width="22" height="74" rx="4" fill="${c}" opacity="${op[1]}"/>
+    <rect x="60" y="104" width="22" height="74" rx="4" fill="${c}" opacity="${op[1]}"/>
+  </svg>`;
+            if (v === 2) return `<svg width="110" height="200" viewBox="0 0 110 200" fill="none">
+    <ellipse cx="55" cy="28" rx="20" ry="20" fill="${c}" opacity="${op[0]}"/>
+    <rect x="36" y="52" width="38" height="58" rx="8" fill="${c}" opacity="${op[1]}"/>
+    <rect x="18" y="55" width="20" height="44" rx="4" fill="${c}" opacity="${op[2]}"/>
+    <rect x="72" y="55" width="20" height="44" rx="4" fill="${c}" opacity="${op[2]}"/>
+    <rect x="28" y="110" width="23" height="68" rx="4" fill="${c}" opacity="${op[1]}"/>
+    <rect x="59" y="110" width="23" height="68" rx="4" fill="${c}" opacity="${op[1]}"/>
+  </svg>`;
+            return `<svg width="110" height="200" viewBox="0 0 110 200" fill="none">
+    <ellipse cx="55" cy="22" rx="14" ry="14" fill="${c}" opacity="${op[0]}"/>
+    <rect x="38" y="39" width="34" height="55" rx="5" fill="${c}" opacity="${op[1]}"/>
+    <rect x="21" y="45" width="19" height="44" rx="4" fill="${c}" opacity="${op[2]}"/>
+    <rect x="70" y="45" width="19" height="44" rx="4" fill="${c}" opacity="${op[2]}"/>
+    <rect x="29" y="94" width="22" height="80" rx="4" fill="${c}" opacity="${op[1]}"/>
+    <rect x="59" y="94" width="22" height="80" rx="4" fill="${c}" opacity="${op[1]}"/>
+  </svg>`;
+        }
+
+        // ═══ BUILD CARDS ═══
+        const track = document.getElementById('track');
+        LEGENDS.forEach((l, i) => {
+            const card = document.createElement('div');
+            card.className = 'legend-card' + (l.featured ? ' featured' : '');
+            card.innerHTML = `
+    <div class="card-glow"></div>
+    <div class="card-img">
+      <div class="card-bg-num">${l.number}</div>
+      <div class="card-era-tag">${l.era}</div>
+      <div class="card-pos-tag">${l.pos.split(' · ')[0]}</div>
+      <div class="card-art" style="background:${l.color}20;">${silhouette(l.color, i)}</div>
+    </div>
+    <div class="card-meta">
+      <div class="card-name">${l.name}</div>
+      <div class="card-years">${l.years}</div>
+      <div class="card-highlight">${l.titles.slice(0,2).join(' &middot; ')}</div>
+      <div class="card-divider"><div class="card-divider-fill"></div></div>
+    </div>
+  `;
+            card.addEventListener('click', () => openDetail(l));
+            card.addEventListener('mouseenter', () => cursorEl.classList.add('big'));
+            card.addEventListener('mouseleave', () => cursorEl.classList.remove('big'));
+            track.appendChild(card);
+        });
+
+        // ═══ DRAG SCROLL ═══
+        let isDragging = false,
+            startX = 0,
+            scrollStart = 0,
+            currentX = 0,
+            velX = 0,
+            lastX = 0,
+            raf = null;
+        const outer = document.querySelector('.gallery-outer');
+
+        function getMaxDrag() {
+            return -(track.scrollWidth - outer.clientWidth + 0);
+        }
+
+        function applyX(v) {
+            currentX = Math.max(getMaxDrag(), Math.min(0, v));
+            track.style.transform = `translateX(${currentX}px)`;
+        }
+
+        outer.addEventListener('mousedown', e => {
+            isDragging = true;
+            startX = e.pageX;
+            scrollStart = currentX;
+            lastX = e.pageX;
+            velX = 0;
+            track.classList.add('grabbing');
+            cancelAnimationFrame(raf);
+        });
+        window.addEventListener('mouseup', () => {
+            if (!isDragging) return;
+            isDragging = false;
+            track.classList.remove('grabbing');
+            // momentum
+            function momentum() {
+                velX *= 0.93;
+                if (Math.abs(velX) < 0.3) return;
+                applyX(currentX + velX);
+                raf = requestAnimationFrame(momentum);
+            }
+            raf = requestAnimationFrame(momentum);
+        });
+        window.addEventListener('mousemove', e => {
+            if (!isDragging) return;
+            velX = e.pageX - lastX;
+            lastX = e.pageX;
+            applyX(scrollStart + (e.pageX - startX));
+        });
+
+        // Touch
+        outer.addEventListener('touchstart', e => {
+            isDragging = true;
+            startX = e.touches[0].pageX;
+            scrollStart = currentX;
+            cancelAnimationFrame(raf);
+        }, {
+            passive: true
+        });
+        outer.addEventListener('touchend', () => {
+            isDragging = false;
+        });
+        outer.addEventListener('touchmove', e => {
+            if (!isDragging) return;
+            applyX(scrollStart + (e.touches[0].pageX - startX));
+        }, {
+            passive: true
+        });
+
+        // ═══ CUSTOM CURSOR ═══
+        const cursorEl = document.getElementById('cursor');
+        document.addEventListener('mousemove', e => {
+            cursorEl.style.left = e.clientX + 'px';
+            cursorEl.style.top = e.clientY + 'px';
+        });
+
+        // ═══ INTRO ═══
+        document.getElementById('enter-btn').addEventListener('click', () => {
+            const intro = document.getElementById('intro');
+            const main = document.getElementById('main');
+            intro.classList.add('fade-out');
+            setTimeout(() => {
+                intro.style.display = 'none';
+                main.classList.add('visible');
+            }, 900);
+        });
+
+        // ═══ NAVIGATION ═══
+        document.querySelectorAll('.nav-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const sec = btn.dataset.section;
+                document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                if (sec === 'galeria') return;
+                if (sec === 'votacao') updateVoteRanking();
+                document.getElementById('section-' + sec).classList.add('open');
+            });
+        });
+        document.querySelectorAll('.section-back-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.getElementById('section-' + btn.dataset.close).classList.remove('open');
+                document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+                document.querySelector('[data-section="galeria"]').classList.add('active');
+            });
+        });
+
+        // ═══ DETAIL PANEL ═══
+        let currentLegend = null;
+
+        function openDetail(l) {
+            currentLegend = l;
+            document.getElementById('d-num').textContent = '#' + l.number;
+            document.getElementById('d-era').textContent = l.era;
+            document.getElementById('d-name').textContent = l.name;
+            document.getElementById('d-pos').textContent = l.pos;
+            document.getElementById('d-bio').textContent = l.bio;
+            document.getElementById('d-years').textContent = l.years;
+            document.getElementById('detail-art').style.background = l.color + '22';
+            document.getElementById('detail-art-sil').innerHTML = silhouette(l.color, LEGENDS.indexOf(l));
+            const tags = document.getElementById('d-tags');
+            tags.innerHTML = l.titles.map(t => `<div class="detail-tag">${t}</div>`).join('');
+            const vb = document.getElementById('vote-btn');
+            vb.className = 'vote-btn' + (votes[l.id] > 0 ? ' voted' : '');
+            vb.textContent = votes[l.id] > 0 ? `✓ Votado (${votes[l.id]})` : '★ Votar neste Imortal';
+            document.getElementById('detail').classList.add('open');
+        }
+
+        function closeDetail() {
+            document.getElementById('detail').classList.remove('open');
+            currentLegend = null;
+        }
+        document.getElementById('detail-close').addEventListener('click', closeDetail);
+        document.getElementById('detail').addEventListener('click', e => {
+            if (e.target === document.getElementById('detail')) closeDetail();
+        });
+        document.addEventListener('keydown', e => {
+            if (e.key === 'Escape') closeDetail();
+        });
+
+        // ═══ VOTING ═══
+        document.getElementById('vote-btn').addEventListener('click', () => {
+            if (!currentLegend) return;
+            votes[currentLegend.id]++;
+            const vb = document.getElementById('vote-btn');
+            vb.className = 'vote-btn voted';
+            vb.textContent = `✓ Votado (${votes[currentLegend.id]})`;
+            showToast(`Voto registrado para ${currentLegend.name}!`);
+        });
+
+        function updateVoteRanking() {
+            const sorted = LEGENDS.slice().sort((a, b) => votes[b.id] - votes[a.id]);
+            const container = document.getElementById('vote-ranking');
+            container.innerHTML = sorted.map((l, i) => `
+    <div style="display:flex;align-items:center;gap:1rem;padding:0.75rem 0;border-bottom:1px solid rgba(201,168,76,0.1);">
+      <div style="font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:900;color:var(--ouro);width:2rem;text-align:right;opacity:${i<3?1:0.4}">${i+1}</div>
+      <div style="flex:1;">
+        <div style="font-family:'Barlow Condensed';font-size:0.95rem;font-weight:600;color:var(--branco);">${l.name}</div>
+        <div style="font-size:0.6rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--ouro);opacity:0.6;">${l.era}</div>
+      </div>
+      <div style="font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:700;color:${votes[l.id]>0?'var(--ouro)':'rgba(255,255,255,0.15)'};">${votes[l.id]}</div>
+    </div>
+  `).join('');
+        }
+
+        // ═══ TOAST ═══
+        function showToast(msg) {
+            const t = document.getElementById('toast');
+            t.textContent = msg;
+            t.classList.add('show');
+            setTimeout(() => t.classList.remove('show'), 2800);
+        }
+    </script>
+</body>
+
+</html>
