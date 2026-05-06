@@ -1,297 +1,499 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Imortais Palmeirenses — Hall of Legends · SE Palmeiras">
-<title>Imortais Palmeirenses | Entrada</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@300;400;600;700&display=swap" rel="stylesheet">
-<style>
-*{box-sizing:border-box;margin:0;padding:0}
-html,body{width:100%;height:100%;background:#0a1a0e;overflow-x:hidden;}
-
-/* ── COLAGEM DE FUNDO ── */
-.collage{position:fixed;inset:0;pointer-events:none;z-index:0;}
-.photo{position:absolute;overflow:hidden;}
-.p1{width:clamp(80px,10vw,140px);height:clamp(105px,13vw,180px);top:5%;left:1.5%;background:#1e4229;transform:rotate(-2deg);}
-.p2{width:clamp(65px,8vw,110px);height:clamp(85px,11vw,150px);top:2%;left:19%;background:#162e1d;transform:rotate(1.5deg);}
-.p3{width:clamp(95px,12vw,160px);height:clamp(70px,9vw,120px);top:2%;right:20%;background:#1e4229;transform:rotate(-1deg);}
-.p4{width:clamp(72px,9vw,125px);height:clamp(95px,12vw,165px);top:3%;right:2%;background:#142813;transform:rotate(2deg);}
-.p5{width:clamp(88px,11vw,150px);height:clamp(64px,8vw,110px);top:26%;left:0;background:#1b3a24;transform:rotate(-3deg);}
-.p6{width:clamp(60px,8vw,105px);height:clamp(80px,10vw,140px);top:30%;right:1%;background:#163020;transform:rotate(1deg);}
-.p7{width:clamp(104px,13vw,180px);height:clamp(76px,9.5vw,130px);bottom:20%;left:2%;background:#1f4530;transform:rotate(2deg);}
-.p8{width:clamp(68px,8.5vw,115px);height:clamp(92px,11.5vw,158px);bottom:18%;right:4%;background:#172e1e;transform:rotate(-2deg);}
-.p9{width:clamp(76px,9.5vw,130px);height:clamp(56px,7vw,95px);bottom:6%;left:16%;background:#1a3d28;transform:rotate(1deg);}
-.p10{width:clamp(84px,10.5vw,144px);height:clamp(68px,8.5vw,116px);bottom:5%;right:18%;background:#152a1b;transform:rotate(-1.5deg);}
-.photo img{width:100%;height:100%;object-fit:cover;object-position:top center;display:block;filter:grayscale(30%) brightness(0.75);}
-.p11{width:clamp(70px,9vw,120px);height:clamp(90px,11.5vw,158px);top:48%;left:0%;background:#1e4229;transform:rotate(2.5deg);}
-.p12{width:clamp(90px,11vw,150px);height:clamp(65px,8vw,108px);top:52%;right:0%;background:#142813;transform:rotate(-2deg);}
-.p13{width:clamp(78px,9.5vw,130px);height:clamp(100px,12.5vw,170px);bottom:38%;left:13%;background:#1b3a24;transform:rotate(-1.5deg);}
-
-/* gradiente central para legibilidade do texto */
-.center-vignette{
-  position:fixed;inset:0;z-index:1;pointer-events:none;
-  background:radial-gradient(ellipse 65% 70% at 50% 50%, rgba(10,26,14,0.82) 0%, transparent 100%);
-}
-.edge-vignette{
-  position:fixed;inset:0;z-index:1;pointer-events:none;
-  background:
-    linear-gradient(to right, rgba(10,26,14,0.7) 0%, transparent 18%, transparent 82%, rgba(10,26,14,0.7) 100%),
-    linear-gradient(to bottom, rgba(10,26,14,0.55) 0%, transparent 18%, transparent 80%, rgba(10,26,14,0.7) 100%);
-}
-
-/* linhas douradas horizontais */
-.gold-line{
-  position:fixed;left:0;right:0;height:1px;
-  background:linear-gradient(to right,transparent 0%,#c9a84c 20%,#c9a84c 80%,transparent);
-  opacity:0.22;z-index:2;pointer-events:none;
-}
-
-/* ── CONTEÚDO PRINCIPAL ── */
-.hero{
-  position:relative;z-index:10;
-  min-height:100vh;
-  display:flex;flex-direction:column;
-  align-items:center;justify-content:center;
-  padding:2rem;
-  text-align:center;
-}
-
-/* TEXTO GIGANTE */
-.big-line{
-  font-family:'Bebas Neue',sans-serif;
-  font-size:clamp(3rem,10vw,8rem);
-  letter-spacing:0.04em;
-  line-height:0.9;
-  color:#f5f0e8;
-  display:flex;align-items:center;justify-content:center;
-  gap:0.4em;flex-wrap:wrap;
-  text-shadow:0 2px 40px rgba(0,0,0,0.8);
-}
-.big-line .gold{color:#c9a84c;}
-
-/* foto inline dentro do texto */
-.inline-photo{
-  display:inline-flex;
-  align-items:center;justify-content:center;
-  width:clamp(55px,8vw,110px);
-  height:clamp(50px,7.5vw,100px);
-  background:#1e4a2a;
-  border:1px solid rgba(201,168,76,0.2);
-  position:relative;overflow:hidden;
-  margin:0 0.15em;
-  vertical-align:middle;flex-shrink:0;
-}
-.inline-photo svg{width:68%;height:68%;opacity:0.55;}
-
-/* separador */
-.divider{
-  width:70px;height:1px;
-  background:linear-gradient(to right,transparent,#c9a84c,transparent);
-  margin:1.8rem auto;opacity:0.7;
-}
-
-/* label "apresentando" */
-.pre-label{
-  font-family:'Barlow Condensed',sans-serif;
-  font-size:clamp(0.6rem,1.2vw,0.82rem);
-  letter-spacing:0.4em;text-transform:uppercase;
-  color:#c9a84c;opacity:0.7;
-  margin-bottom:0.6rem;
-}
-
-/* logo row */
-.logo-row{
-  display:flex;align-items:center;justify-content:center;
-  gap:0.8rem;margin:0.3rem 0 0.8rem;
-}
-.logo-name{
-  font-family:'Bebas Neue',sans-serif;
-  font-size:clamp(1rem,2.5vw,1.6rem);
-  letter-spacing:0.22em;color:#c9a84c;opacity:0.85;
-}
-.logo-dot{width:5px;height:5px;border-radius:50%;background:#c9a84c;opacity:0.35;}
-
-/* CLASSE ANO */
-.class-label{
-  font-family:'Bebas Neue',sans-serif;
-  font-size:clamp(0.9rem,2vw,1.4rem);
-  letter-spacing:0.3em;color:#f5f0e8;opacity:0.55;
-  margin-top:0.2rem;
-}
-.class-year{
-  font-family:'Bebas Neue',sans-serif;
-  font-size:clamp(3.5rem,11vw,7.5rem);
-  letter-spacing:0.06em;line-height:1;
-  color:#c9a84c;
-  text-shadow:0 0 80px rgba(201,168,76,0.25);
-}
-
-/* BOTÃO */
-.cta-wrap{margin-top:1.2rem;display:flex;flex-direction:column;align-items:center;gap:0.8rem;}
-.cta-btn{
-  display:inline-flex;align-items:center;gap:0.8rem;
-  background:transparent;
-  border:1.5px solid #c9a84c;
-  color:#c9a84c;
-  font-family:'Barlow Condensed',sans-serif;
-  font-size:clamp(0.7rem,1.3vw,0.85rem);
-  font-weight:600;letter-spacing:0.35em;text-transform:uppercase;
-  padding:0.95rem 2.8rem;cursor:pointer;
-  text-decoration:none;
-  transition:background 0.35s,color 0.35s;
-  position:relative;overflow:hidden;
-}
-.cta-btn::before{
-  content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;
-  background:#c9a84c;transition:left 0.35s ease;z-index:-1;
-}
-.cta-btn:hover{color:#0a1a0e;}
-.cta-btn:hover::before{left:0;}
-.cta-arrow{
-  display:inline-block;width:22px;height:1.5px;background:currentColor;
-  position:relative;vertical-align:middle;
-}
-.cta-arrow::after{
-  content:'';position:absolute;right:-1px;top:-3.5px;
-  border:solid currentColor;border-width:0 1.5px 1.5px 0;
-  padding:3.5px;transform:rotate(-45deg);
-}
-
-/* link criterios */
-.criteria-link{
-  font-family:'Barlow Condensed',sans-serif;
-  font-size:0.65rem;letter-spacing:0.3em;text-transform:uppercase;
-  color:#c9a84c;opacity:0.45;
-  text-decoration:none;cursor:pointer;
-  display:flex;align-items:center;gap:0.5rem;
-}
-.criteria-link::before,.criteria-link::after{
-  content:'';display:block;width:24px;height:1px;background:#c9a84c;opacity:0.3;
-}
-.criteria-link:hover{opacity:0.7;}
-
-/* ESTRELAS */
-#stars{position:fixed;inset:0;z-index:0;pointer-events:none;}
-.star{
-  position:absolute;border-radius:50%;background:#c9a84c;
-  opacity:0;animation:twinkle var(--d,3s) var(--dl,0s) infinite;
-}
-@keyframes twinkle{0%,100%{opacity:0;}50%{opacity:var(--op,0.2);}}
-
-/* entrada animada */
-@keyframes up{from{opacity:0;transform:translateY(28px);}to{opacity:1;transform:translateY(0);}}
-.a1{animation:up 0.8s 0.1s both;}
-.a2{animation:up 0.8s 0.28s both;}
-.a3{animation:up 0.8s 0.44s both;}
-.a4{animation:up 0.8s 0.58s both;}
-.a5{animation:up 0.8s 0.72s both;}
-.a6{animation:up 0.8s 0.86s both;}
-.a7{animation:up 0.8s 1.0s both;}
-.a8{animation:up 0.8s 1.14s both;}
-
-@media(max-width:600px){
-  .inline-photo{display:none;}
-  .big-line{font-size:clamp(2.4rem,12vw,5rem);}
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Imortais Palmeirenses — Hall of Legends · SE Palmeiras">
+    <title>Imortais Palmeirenses | Entrada</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+            background: #0a1a0e;
+            overflow: hidden;
+            /* Evita scroll durante as animações */
+        }
+        /* ── COLAGEM COM PARALLAX ── */
+        
+        .collage {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 0;
+        }
+        
+        .photo {
+            position: absolute;
+            overflow: hidden;
+            transition: transform 0.1s ease-out, filter 0.5s ease, box-shadow 0.5s ease;
+            will-change: transform;
+            border: 1px solid rgba(201, 168, 76, 0.15);
+            /* Moldura sutil */
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            pointer-events: auto;
+            /* Permite o hover nas fotos */
+        }
+        /* Ajuste de posições das fotos (Mantendo seu layout original) */
+        
+        .p1 {
+            width: 140px;
+            height: 180px;
+            top: 5%;
+            left: 1.5%;
+            transform: rotate(-2deg);
+        }
+        
+        .p2 {
+            width: 110px;
+            height: 150px;
+            top: 2%;
+            left: 19%;
+            transform: rotate(1.5deg);
+        }
+        
+        .p3 {
+            width: 160px;
+            height: 120px;
+            top: 2%;
+            right: 20%;
+            transform: rotate(-1deg);
+        }
+        
+        .p4 {
+            width: 125px;
+            height: 165px;
+            top: 3%;
+            right: 2%;
+            transform: rotate(2deg);
+        }
+        
+        .p5 {
+            width: 150px;
+            height: 110px;
+            top: 26%;
+            left: 0;
+            transform: rotate(-3deg);
+        }
+        
+        .p6 {
+            width: 105px;
+            height: 140px;
+            top: 30%;
+            right: 1%;
+            transform: rotate(1deg);
+        }
+        
+        .p7 {
+            width: 180px;
+            height: 130px;
+            bottom: 20%;
+            left: 2%;
+            transform: rotate(2deg);
+        }
+        
+        .p8 {
+            width: 115px;
+            height: 158px;
+            bottom: 18%;
+            right: 4%;
+            transform: rotate(-2deg);
+        }
+        
+        .p9 {
+            width: 130px;
+            height: 95px;
+            bottom: 6%;
+            left: 16%;
+            transform: rotate(1deg);
+        }
+        
+        .p10 {
+            width: 144px;
+            height: 116px;
+            bottom: 5%;
+            right: 18%;
+            transform: rotate(-1.5deg);
+        }
+        
+        .p11 {
+            width: 120px;
+            height: 158px;
+            top: 48%;
+            left: 0%;
+            transform: rotate(2.5deg);
+        }
+        
+        .p12 {
+            width: 150px;
+            height: 108px;
+            top: 52%;
+            right: 0%;
+            transform: rotate(-2deg);
+        }
+        
+        .p13 {
+            width: 130px;
+            height: 170px;
+            bottom: 38%;
+            left: 13%;
+            transform: rotate(-1.5deg);
+        }
+        
+        .photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            /* AJUSTE DE BRILHO: Fotos menos apagadas e com mais contraste */
+            filter: grayscale(20%) brightness(0.8) contrast(1.1);
+            display: block;
+            transition: all 0.5s ease;
+        }
+        /* EFEITO DE INTERAÇÃO: A foto "acende" ao passar o mouse */
+        
+        .photo:hover {
+            z-index: 20;
+            filter: none;
+            transform: scale(1.08) !important;
+            border-color: rgba(201, 168, 76, 0.6);
+        }
+        
+        .photo:hover img {
+            filter: grayscale(0%) brightness(1.1) contrast(1.1);
+        }
+        /* ── EFEITOS DE ATMOSFERA ── */
+        
+        .center-vignette {
+            position: fixed;
+            inset: 0;
+            z-index: 1;
+            pointer-events: none;
+            /* Vinheta mais suave no centro para não esconder as fotos */
+            background: radial-gradient(circle at center, transparent 0%, rgba(10, 26, 14, 0.2) 50%, #0a1a0e 95%);
+        }
+        
+        .gold-line {
+            position: fixed;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(to right, transparent, #c9a84c, transparent);
+            opacity: 0.15;
+            z-index: 2;
+        }
+        /* ── CONTEÚDO PRINCIPAL ── */
+        
+        .hero {
+            position: relative;
+            z-index: 10;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            text-align: center;
+        }
+        /* ANIMAÇÃO DE ENTRADA DAS LETRAS */
+        
+        @keyframes revealText {
+            from {
+                opacity: 0;
+                transform: translateY(40px) skewY(5deg);
+                filter: blur(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) skewY(0deg);
+                filter: blur(0);
+            }
+        }
+        
+        .big-line {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(3rem, 10vw, 8rem);
+            letter-spacing: 0.04em;
+            line-height: 0.9;
+            color: #f5f0e8;
+            margin: 0.05em 0;
+            text-shadow: 0 10px 40px rgba(0, 0, 0, 0.9);
+            animation: revealText 1.4s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+        }
+        
+        .line-1 {
+            animation-delay: 0.2s;
+        }
+        
+        .line-2 {
+            animation-delay: 0.4s;
+        }
+        
+        .line-3 {
+            animation-delay: 0.6s;
+        }
+        
+        .gold {
+            color: #c9a84c;
+        }
+        
+        .divider {
+            width: 80px;
+            height: 1px;
+            background: #c9a84c;
+            margin: 2rem 0;
+            opacity: 0.6;
+            animation: revealText 1s 0.8s both;
+        }
+        
+        .pre-label {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 0.8rem;
+            letter-spacing: 0.5em;
+            text-transform: uppercase;
+            color: #c9a84c;
+            margin-bottom: 0.8rem;
+            animation: revealText 1s 1s both;
+        }
+        
+        .class-year {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(4rem, 12vw, 8rem);
+            line-height: 1;
+            color: #c9a84c;
+            text-shadow: 0 0 40px rgba(201, 168, 76, 0.2);
+            animation: revealText 1.2s 1.2s both;
+        }
+        /* BOTÃO INTERATIVO */
+        
+        .cta-btn {
+            margin-top: 2rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+            border: 1px solid #c9a84c;
+            color: #c9a84c;
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            padding: 1rem 3rem;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            animation: revealText 1s 1.4s both;
+        }
+        
+        .cta-btn:hover {
+            background: #c9a84c;
+            color: #0a1a0e;
+            box-shadow: 0 0 25px rgba(201, 168, 76, 0.4);
+            transform: translateY(-2px);
+        }
+        /* ESTRELAS */
+        
+        #stars {
+            position: fixed;
+            inset: 0;
+            z-index: 0;
+            pointer-events: none;
+        }
+        
+        .star {
+            position: absolute;
+            background: #c9a84c;
+            border-radius: 50%;
+            opacity: 0;
+            animation: twinkle var(--d) var(--dl) infinite;
+        }
+        
+        @keyframes twinkle {
+            0%,
+            100% {
+                opacity: 0;
+            }
+            50% {
+                opacity: 0.3;
+            }
+        }
+        /* ── AJUSTE MOBILE: MURAL DENSO E ORGANIZADO ── */
+        
+        @media (max-width: 768px) {
+            .photo {
+                width: 95px !important;
+                /* Fotos um pouco maiores para preencher mais */
+                height: 125px !important;
+                filter: grayscale(10%) brightness(0.9) !important;
+                /* Mais brilho no celular */
+            }
+            /* Reativando quase todas as fotos para o efeito "mural" */
+            .photo:not(.p5):not(.p9) {
+                display: block !important;
+            }
+            /* Grupo do Topo (Moldura superior) */
+            .p1 {
+                top: 1%;
+                left: -5%;
+                transform: rotate(-8deg);
+            }
+            .p2 {
+                top: -2%;
+                left: 30%;
+                transform: rotate(5deg);
+            }
+            .p3 {
+                top: -2%;
+                right: 28%;
+                transform: rotate(-4deg);
+            }
+            .p4 {
+                top: 1%;
+                right: -5%;
+                transform: rotate(8deg);
+            }
+            /* Laterais (Preenchendo o vácuo ao lado do texto) */
+            .p11 {
+                top: 35%;
+                left: -8%;
+                transform: rotate(5deg);
+                z-index: 5;
+            }
+            .p12 {
+                top: 42%;
+                right: -8%;
+                transform: rotate(-6deg);
+                z-index: 5;
+            }
+            .p6 {
+                top: 22%;
+                right: -5%;
+                transform: rotate(10deg);
+                opacity: 0.5;
+            }
+            /* Grupo da Base (Moldura inferior) */
+            .p13 {
+                bottom: 30%;
+                left: -5%;
+                transform: rotate(-5deg);
+            }
+            .p7 {
+                bottom: 2%;
+                left: -2%;
+                transform: rotate(6deg);
+            }
+            .p10 {
+                bottom: 2%;
+                right: 22%;
+                transform: rotate(-4deg);
+            }
+            .p8 {
+                bottom: 8%;
+                right: -2%;
+                transform: rotate(-8deg);
+            }
+            /* Ajuste Fino do Texto Central */
+            .big-line {
+                font-size: 2.5rem;
+                width: 85%;
+                margin: 0 auto;
+                z-index: 20;
+                position: relative;
+            }
+            .class-year {
+                font-size: 4.8rem;
+                margin-top: 0.2rem;
+            }
+            /* Vinheta mais forte nas bordas para "fechar" o mural */
+            .center-vignette {
+                background: radial-gradient(circle at center, transparent 10%, rgba(10, 26, 14, 0.4) 50%, #0a1a0e 98%);
+            }
+        }
+    </style>
 </head>
+
 <body>
 
-<!-- ESTRELAS -->
-<div id="stars"></div>
+    <div id="stars"></div>
 
-<!-- COLAGEM DE FOTOS -->
-<div class="collage">
-  <div class="photo p1"><img src="foto1.jpeg" alt=""></div>
-  <div class="photo p2"><img src="foto2.jpeg" alt=""></div>
-  <div class="photo p3"><img src="foto3.jpeg" alt=""></div>
-  <div class="photo p4"><img src="foto4.jpeg" alt=""></div>
-  <div class="photo p5"><img src="foto5.jpeg" alt=""></div>
-  <div class="photo p6"><img src="foto6.jpeg" alt=""></div>
-  <div class="photo p7"><img src="foto7.jpeg" alt=""></div>
-  <div class="photo p8"><img src="foto8.jpeg" alt=""></div>
-  <div class="photo p9"><img src="foto9.jpeg" alt=""></div>
-  <div class="photo p10"><img src="foto10.jpeg" alt=""></div>
-  <div class="photo p11"><img src="foto11.jpeg" alt=""></div>
-  <div class="photo p12"><img src="foto12.jpeg" alt=""></div>
-  <div class="photo p13"><img src="foto13.jpeg" alt=""></div>
-</div>
+    <!-- COLAGEM DE FOTOS COM DATA-SPEED PARA O PARALLAX -->
+    <div class="collage" id="parallax-bg">
+        <div class="photo p1" data-speed="0.04"><img src="img/foto1.jpg"></div>
+        <div class="photo p2" data-speed="0.06"><img src="img/foto2.jpg"></div>
+        <div class="photo p3" data-speed="0.03"><img src="img/foto3.jfif"></div>
+        <div class="photo p4" data-speed="0.05"><img src="img/foto4.webp"></div>
+        <div class="photo p5" data-speed="0.02"><img src="img/foto5.webp"></div>
+        <div class="photo p6" data-speed="0.07"><img src="img/foto6.jfif"></div>
+        <div class="photo p7" data-speed="0.08"><img src="img/foto7.jpg"></div>
+        <div class="photo p8" data-speed="0.04"><img src="img/foto8.webp"></div>
+        <div class="photo p9" data-speed="0.05"><img src="img/foto9.jpg"></div>
+        <div class="photo p10" data-speed="0.06"><img src="img/foto10.jpg"></div>
+        <div class="photo p11" data-speed="0.03"><img src="img/foto11.webp"></div>
+        <div class="photo p12" data-speed="0.04"><img src="img/foto12.jpg"></div>
+        <div class="photo p13" data-speed="0.05"><img src="img/foto13.webp"></div>
+    </div>
 
-<!-- VINHETAS -->
-<div class="center-vignette"></div>
-<div class="edge-vignette"></div>
-<div class="gold-line" style="top:16%"></div>
-<div class="gold-line" style="bottom:22%"></div>
+    <div class="center-vignette"></div>
+    <div class="gold-line" style="top:16%"></div>
+    <div class="gold-line" style="bottom:22%"></div>
 
-<!-- HERO -->
-<main class="hero">
+    <main class="hero">
+        <div class="big-line line-1">CELEBRANDO LENDAS</div>
+        <div class="big-line line-2">CAMPEÕES E <span class="gold">ÍDOLOS</span></div>
+        <div class="big-line line-3">DA HISTÓRIA DO <span class="gold">VERDÃO</span></div>
 
-  <!-- LINHA 1 -->
-  <div class="big-line a1">
-    CELEBRANDO
-    <span class="inline-photo">
-      <svg viewBox="0 0 60 80" fill="none"><ellipse cx="30" cy="14" rx="10" ry="10" fill="#c9a84c" opacity="0.75"/><rect x="18" y="27" width="24" height="32" rx="4" fill="#c9a84c" opacity="0.65"/><rect x="10" y="30" width="11" height="25" rx="3" fill="#c9a84c" opacity="0.5"/><rect x="39" y="30" width="11" height="25" rx="3" fill="#c9a84c" opacity="0.5"/><rect x="16" y="58" width="13" height="20" rx="3" fill="#c9a84c" opacity="0.65"/><rect x="31" y="58" width="13" height="20" rx="3" fill="#c9a84c" opacity="0.65"/></svg>
-    </span>
-    LENDAS
-  </div>
+        <div class="divider"></div>
 
-  <!-- LINHA 2 -->
-  <div class="big-line a2">
-    CAMPEÕES
-    <span class="inline-photo">
-      <svg viewBox="0 0 60 60" fill="none"><rect x="15" y="5" width="30" height="34" rx="3" fill="#c9a84c" opacity="0.55"/><rect x="5" y="7" width="10" height="21" rx="2" fill="#c9a84c" opacity="0.38"/><rect x="45" y="7" width="10" height="21" rx="2" fill="#c9a84c" opacity="0.38"/><rect x="22" y="39" width="16" height="6" rx="1" fill="#c9a84c" opacity="0.42"/><rect x="14" y="45" width="32" height="5" rx="1" fill="#c9a84c" opacity="0.52"/></svg>
-    </span>
-    E <span class="gold">ÍDOLOS</span>
-  </div>
+        <div class="pre-label">Apresentando</div>
+        <div class="class-year">2026</div>
 
-  <!-- LINHA 3 -->
-  <div class="big-line a3">
-    DA HISTÓRIA DO
-    <span class="inline-photo">
-      <svg viewBox="0 0 60 60" fill="none"><circle cx="30" cy="30" r="20" stroke="#c9a84c" stroke-width="1.5" opacity="0.7"/><path d="M30 13L34.5 23H46L37 30L40 41L30 35L20 41L23 30L14 23H25.5Z" fill="#c9a84c" opacity="0.55"/></svg>
-    </span>
-    <span class="gold">VERDÃO</span>
-  </div>
+        <a class="cta-btn" href="index.html">
+            VER OS IMORTAIS
+        </a>
+    </main>
 
-  <div class="divider a4"></div>
+    <script>
+        // GERADOR DE ESTRELAS
+        const starsContainer = document.getElementById('stars');
+        for (let i = 0; i < 90; i++) {
+            const el = document.createElement('div');
+            el.className = 'star';
+            const size = Math.random() * 2 + 0.5;
+            el.style.cssText = `
+                width: ${size}px; height: ${size}px;
+                top: ${Math.random() * 100}%; left: ${Math.random() * 100}%;
+                --d: ${3 + Math.random() * 4}s; --dl: ${Math.random() * 5}s;
+            `;
+            starsContainer.appendChild(el);
+        }
 
-  <div class="pre-label a4">Apresentando</div>
+        // LÓGICA DE PARALLAX DAS FOTOS
+        document.addEventListener("mousemove", (e) => {
+            const photos = document.querySelectorAll(".photo");
+            const mouseX = e.clientX;
+            const mouseY = e.clientY;
 
-  <div class="logo-row a5">
-    <div class="logo-dot"></div>
-    <div class="logo-name">IMORTAIS PALMEIRENSES</div>
-    <div class="logo-dot"></div>
-  </div>
+            photos.forEach(photo => {
+                const speed = photo.getAttribute("data-speed");
+                const x = (window.innerWidth / 2 - mouseX) * speed;
+                const y = (window.innerHeight / 2 - mouseY) * speed;
 
-  <div class="a5">
-    <div class="class-label">CLASSE DE</div>
-    <div class="class-year">2025</div>
-  </div>
-
-  <div class="cta-wrap a6">
-    <a class="cta-btn" href="index.html">
-      VER OS IMORTAIS
-      <span class="cta-arrow"></span>
-    </a>
-    <a class="criteria-link a7" href="index.html">
-      CRITÉRIOS DE SELEÇÃO
-    </a>
-  </div>
-
-</main>
-
-<script>
-const s=document.getElementById('stars');
-for(let i=0;i<90;i++){
-  const el=document.createElement('div');
-  el.className='star';
-  const sz=Math.random()*2.2+0.4;
-  el.style.cssText=`width:${sz}px;height:${sz}px;top:${Math.random()*100}%;left:${Math.random()*100}%;--d:${2+Math.random()*5}s;--dl:${Math.random()*5}s;--op:${0.06+Math.random()*0.22}`;
-  s.appendChild(el);
-}
-</script>
+                // Aplica o movimento mantendo a rotação fixa do CSS
+                photo.style.transform = `translate(${x}px, ${y}px)`;
+            });
+        });
+    </script>
 </body>
+
 </html>
