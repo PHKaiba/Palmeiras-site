@@ -1,6 +1,6 @@
 # 🟢 Hall da Fama do Palmeiras
 
-![Preview do Projeto](./assets/print.png)
+![Preview do Projeto](./assets/print.jpeg)
 
 Um projeto web desenvolvido para homenagear o **time do Palmeiras** com um layout de **Hall da Fama**, reunindo destaque, identidade visual e uma experiência simples e direta para o usuário.
 
