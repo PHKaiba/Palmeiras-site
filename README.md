@@ -5,109 +5,102 @@
 <br/>
 
 <div align="center">
-  <h1>🏆 Hall da Fama do Palmeiras</h1>
-  <p><em>Um santuário digital para a história do maior campeão do Brasil</em></p>
+
+# Hall da Fama do Palmeiras
+
+**Um santuário digital para a história do maior campeão do Brasil**
+
+[![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/HTML)
+[![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/CSS)
+[![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+[![Netlify](https://img.shields.io/badge/Deploy-Netlify-00C7B7?style=flat-square&logo=netlify&logoColor=white)](https://regal-dasik-e6a6ec.netlify.app/)
+[![Status](https://img.shields.io/badge/Status-Online-00c853?style=flat-square)](https://regal-dasik-e6a6ec.netlify.app/)
+
+[Ver Demo ao Vivo](https://regal-dasik-e6a6ec.netlify.app/) · [Reportar Bug](https://github.com/seu-usuario/palmeiras-site/issues) · [Sugerir Feature](https://github.com/seu-usuario/palmeiras-site/issues)
+
 </div>
-
-<div align="center">
-
-![HTML5](https://img.shields.io/badge/HTML5-000000?style=flat-square&logo=html5&logoColor=white)
-![CSS3](https://img.shields.io/badge/CSS3-000000?style=flat-square&logo=css3&logoColor=white)
-![JavaScript](https://img.shields.io/badge/JavaScript-000000?style=flat-square&logo=javascript&logoColor=white)
-![Netlify](https://img.shields.io/badge/Deploy-Netlify-000000?style=flat-square&logo=netlify&logoColor=white)
-![Status](https://img.shields.io/badge/Status-Online-00c853?style=flat-square)
-
-</div>
-
-<br/>
 
 ---
 
-## 📖 Sobre o Projeto
+## Sobre o Projeto
 
-O **Hall da Fama do Palmeiras** é uma homenagem digital ao clube mais vitorioso do Brasil — o **Palmeiras**. O site foi concebido como um santuário para lendas, campeões e ídolos que escreveram a história alviverde, unindo design sofisticado à paixão das arquibancadas.
+O **Hall da Fama do Palmeiras** é uma homenagem digital ao clube mais vitorioso do Brasil. O projeto foi concebido como um espaço dedicado a lendas, conquistas e ídolos que construíram a história alviverde — unindo design sofisticado à paixão das arquibancadas.
 
 > *"Celebrando história, glória e paixão alviverde — onde cada conquista encontra seu lugar de honra."*
 
+O site prioriza uma experiência visual imersiva, com atenção à identidade do clube e navegação intuitiva para qualquer tipo de usuário.
+
 ---
 
-## ✨ Recursos
+## Funcionalidades
 
-| Recurso | Descrição |
+- **Design Minimalista** — Interface elegante com identidade visual alviverde autêntica
+- **Totalmente Responsivo** — Experiência consistente em desktop, tablet e mobile
+- **Alta Performance** — Código leve, sem dependências externas, com carregamento rápido
+- **Navegação Fluida** — Transições suaves e fluxo intuitivo entre páginas
+- **Identidade Alviverde** — Paleta de cores e estética fiel à história do clube
+
+---
+
+## Tecnologias
+
+| Tecnologia | Função |
 |---|---|
-| 🎨 **Design Minimalista** | Interface elegante com identidade visual alviverde autêntica |
-| 📱 **Responsivo** | Experiência otimizada para todos os dispositivos e tamanhos de tela |
-| ⚡ **Performance** | Código leve, otimizado para carregamento rápido |
-| 🧭 **Navegação Intuitiva** | Fluxo fluido entre as páginas do projeto |
-| 🌿 **Identidade Alviverde** | Paleta de cores e estética fiel ao clube |
+| **HTML5** | Estrutura semântica e acessível |
+| **CSS3** | Estilização, animações e responsividade |
+| **JavaScript** | Interatividade e comportamentos dinâmicos |
+| **Netlify** | Deploy contínuo e hospedagem em produção |
 
 ---
 
-## 🛠️ Tecnologias
-
-- **HTML5** — Estrutura semântica e acessível
-- **CSS3** — Estilização e animações com foco em elegância
-- **JavaScript** — Interatividade e dinamismo
-- **Netlify** — Deploy contínuo e hospedagem
-
----
-
-## 📁 Estrutura do Projeto
+## Estrutura do Projeto
 
 ```
 hall-da-fama-palmeiras/
 │
 ├── assets/
-│   └── print.jpeg          # Imagem de preview
+│   └── print.jpeg          # Preview do projeto
 │
-├── index.html              # Página inicial
-├── principal.html          # Página principal com o conteúdo
+├── index.html              # Página de entrada
+├── principal.html          # Conteúdo principal
 ├── style.css               # Estilos globais
 └── script.js               # Lógica e interações
 ```
 
 ---
 
-## 🚀 Como Executar Localmente
+## Como Executar Localmente
 
 ```bash
-# Clone o repositório
+# 1. Clone o repositório
 git clone https://github.com/seu-usuario/palmeiras-site.git
 
-# Acesse a pasta do projeto
+# 2. Acesse a pasta do projeto
 cd palmeiras-site
 
-# Abra o arquivo index.html no seu navegador
-# Ou use uma extensão como Live Server no VS Code
+# 3. Abra o index.html no navegador
+# Recomendado: extensão Live Server no VS Code
 ```
 
-> Não há dependências externas — basta abrir o `index.html` diretamente no navegador.
+> Nenhuma dependência externa necessária. Basta abrir o `index.html` diretamente no navegador.
 
 ---
 
-## 🌐 Demo
+## Demo
 
-<div align="center">
+Acesse o projeto em produção:
 
-[![Ver Demo](https://img.shields.io/badge/▶_Acessar_o_Projeto-000000?style=for-the-badge&logo=netlify&logoColor=white)](https://regal-dasik-e6a6ec.netlify.app/)
-
-</div>
+**[regal-dasik-e6a6ec.netlify.app](https://regal-dasik-e6a6ec.netlify.app/)**
 
 ---
 
-## 👤 Autor
-
-<div align="center">
+## Autor
 
 **Pedro Dorta** — Amparo, SP
 
-[![GitHub](https://img.shields.io/badge/GitHub-000000?style=flat-square&logo=github&logoColor=white)](https://github.com/seu-usuario)
-&nbsp;
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-000000?style=flat-square&logo=linkedin&logoColor=white)](https://linkedin.com/in/seu-usuario)
-&nbsp;
-[![Email](https://img.shields.io/badge/Email-000000?style=flat-square&logo=gmail&logoColor=white)](mailto:seu-email@example.com)
-
-</div>
+[![GitHub](https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=github&logoColor=white)](https://github.com/seu-usuario)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=flat-square&logo=linkedin&logoColor=white)](https://linkedin.com/in/seu-usuario)
+[![Email](https://img.shields.io/badge/Email-EA4335?style=flat-square&logo=gmail&logoColor=white)](mailto:seu-email@example.com)
 
 ---
 
