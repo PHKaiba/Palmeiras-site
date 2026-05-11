@@ -1,48 +1,21 @@
 <div align="center">
-  <img src="./assets/print.jpeg" width="100%" alt="Hall da Fama do Palmeiras"/>
+  <img src="./assets/print.jpeg" width="100%" alt="Hall da Fama do Palmeiras — Preview"/>
 </div>
 
 <br/>
 
 <div align="center">
-
-# Hall da Fama do Palmeiras
-
+  <h1>🏆 Hall da Fama do Palmeiras</h1>
+  <p><em>Um santuário digital para a história do maior campeão do Brasil</em></p>
 </div>
 
-<br/>
-
----
-
-<br/>
-
 <div align="center">
-
-Uma homenagem digital ao maior campeão do Brasil
-
-Celebrando história, glória e paixão alviverde
-
-Onde cada conquista encontra seu lugar de honra
-
-</div>
-
-<br/>
-
----
-
-<br/>
-
-<div align="center">
-
-### Tecnologias
 
 ![HTML5](https://img.shields.io/badge/HTML5-000000?style=flat-square&logo=html5&logoColor=white)
-&nbsp;
 ![CSS3](https://img.shields.io/badge/CSS3-000000?style=flat-square&logo=css3&logoColor=white)
-&nbsp;
 ![JavaScript](https://img.shields.io/badge/JavaScript-000000?style=flat-square&logo=javascript&logoColor=white)
-&nbsp;
-![Netlify](https://img.shields.io/badge/Netlify-000000?style=flat-square&logo=netlify&logoColor=white)
+![Netlify](https://img.shields.io/badge/Deploy-Netlify-000000?style=flat-square&logo=netlify&logoColor=white)
+![Status](https://img.shields.io/badge/Status-Online-00c853?style=flat-square)
 
 </div>
 
@@ -50,98 +23,94 @@ Onde cada conquista encontra seu lugar de honra
 
 ---
 
-<br/>
+## 📖 Sobre o Projeto
 
-<div align="center">
+O **Hall da Fama do Palmeiras** é uma homenagem digital ao clube mais vitorioso do Brasil — o **Palmeiras**. O site foi concebido como um santuário para lendas, campeões e ídolos que escreveram a história alviverde, unindo design sofisticado à paixão das arquibancadas.
 
-### Recursos
-
-</div>
-
-<div align="center">
-
-✦  Interface minimalista e elegante
-
-✦  Design responsivo para todos os dispositivos
-
-✦  Identidade visual alviverde autêntica
-
-✦  Navegação fluida e intuitiva
-
-✦  Performance otimizada
-
-</div>
-
-<br/>
+> *"Celebrando história, glória e paixão alviverde — onde cada conquista encontra seu lugar de honra."*
 
 ---
 
-<br/>
+## ✨ Recursos
 
-<div align="center">
+| Recurso | Descrição |
+|---|---|
+| 🎨 **Design Minimalista** | Interface elegante com identidade visual alviverde autêntica |
+| 📱 **Responsivo** | Experiência otimizada para todos os dispositivos e tamanhos de tela |
+| ⚡ **Performance** | Código leve, otimizado para carregamento rápido |
+| 🧭 **Navegação Intuitiva** | Fluxo fluido entre as páginas do projeto |
+| 🌿 **Identidade Alviverde** | Paleta de cores e estética fiel ao clube |
 
-### Estrutura
+---
 
-</div>
+## 🛠️ Tecnologias
 
-<div align="center">
+- **HTML5** — Estrutura semântica e acessível
+- **CSS3** — Estilização e animações com foco em elegância
+- **JavaScript** — Interatividade e dinamismo
+- **Netlify** — Deploy contínuo e hospedagem
 
+---
+
+## 📁 Estrutura do Projeto
+
+```
 hall-da-fama-palmeiras/
-
 │
-
 ├── assets/
-
-│   └── print.jpeg
-
+│   └── print.jpeg          # Imagem de preview
 │
-
-├── index.html
-
-├── principal.html
-
-├── style.css
-
-└── script.js
-
-</div>
-
-<br/>
+├── index.html              # Página inicial
+├── principal.html          # Página principal com o conteúdo
+├── style.css               # Estilos globais
+└── script.js               # Lógica e interações
+```
 
 ---
 
-<br/>
+## 🚀 Como Executar Localmente
 
-<div align="center">
+```bash
+# Clone o repositório
+git clone https://github.com/seu-usuario/palmeiras-site.git
 
-### Acesse o Projeto
+# Acesse a pasta do projeto
+cd palmeiras-site
 
-[![Demo](https://img.shields.io/badge/Ver_Demo-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://regal-dasik-e6a6ec.netlify.app/)
+# Abra o arquivo index.html no seu navegador
+# Ou use uma extensão como Live Server no VS Code
+```
 
-</div>
-
-<br/>
+> Não há dependências externas — basta abrir o `index.html` diretamente no navegador.
 
 ---
 
-<br/>
+## 🌐 Demo
 
 <div align="center">
+
+[![Ver Demo](https://img.shields.io/badge/▶_Acessar_o_Projeto-000000?style=for-the-badge&logo=netlify&logoColor=white)](https://regal-dasik-e6a6ec.netlify.app/)
+
+</div>
+
+---
+
+## 👤 Autor
+
+<div align="center">
+
+**Pedro Dorta** — Amparo, SP
 
 [![GitHub](https://img.shields.io/badge/GitHub-000000?style=flat-square&logo=github&logoColor=white)](https://github.com/seu-usuario)
-&nbsp;&nbsp;
+&nbsp;
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-000000?style=flat-square&logo=linkedin&logoColor=white)](https://linkedin.com/in/seu-usuario)
-&nbsp;&nbsp;
+&nbsp;
 [![Email](https://img.shields.io/badge/Email-000000?style=flat-square&logo=gmail&logoColor=white)](mailto:seu-email@example.com)
 
 </div>
 
-<br/>
-
 ---
 
 <div align="center">
-  <sub>Desenvolvido por Pedro Dorta &nbsp;·&nbsp; Amparo, SP</sub>
+  <sub>Desenvolvido com 💚 por Pedro Dorta &nbsp;·&nbsp; Amparo, SP</sub>
 </div>
-
-<br/>
